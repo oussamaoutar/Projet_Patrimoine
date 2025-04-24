@@ -1,0 +1,153 @@
+/* Styles additionnels pour améliorer les performances et l'accessibilité */
+
+/* Optimisations de performance */
+img {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 300px;
+}
+
+.lazy-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
+
+/* Améliorations d'accessibilité */
+:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Amélioration des contrastes pour l'accessibilité */
+.high-contrast {
+    --primary-color: #003366;
+    --secondary-color: #990000;
+    --text-color: #000000;
+    --background-color: #ffffff;
+    --light-color: #f5f5f5;
+    --dark-color: #111111;
+}
+
+.high-contrast .btn,
+.high-contrast .nav-link,
+.high-contrast .section-title h2 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.high-contrast .gallery-item-info {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Optimisations pour l'impression */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* Optimisations de performance pour les animations */
+@media (prefers-reduced-motion: no-preference) {
+    .optimized-animation {
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+    }
+}
+
+/* Corrections pour les navigateurs plus anciens */
+.legacy-support {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@supports not (display: flex) {
+    .legacy-support {
+        display: block;
+    }
+    
+    .legacy-support > * {
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+        margin: 1.5%;
+    }
+}
+
+/* Optimisations pour les connexions lentes */
+.low-bandwidth-img {
+    background-color: #f0f0f0;
+    min-height: 200px;
+}
+
+/* Amélioration des performances de défilement */
+.scroll-container {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Optimisations pour les écrans à haute densité de pixels */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero h1,
+    .section-title h2 {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Amélioration de la lisibilité du texte */
+.content-block p,
+.process-content p,
+.column p {
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Optimisations pour les écrans tactiles */
+@media (hover: none) {
+    .touch-target {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-item,
+    .btn,
+    .footer-col ul li a {
+        padding: 12px;
+    }
+}
