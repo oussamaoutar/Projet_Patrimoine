@@ -1,6 +1,3 @@
-/* Responsive styles for the Zellige and Plâtre Sculpté website */
-
-/* Base responsive settings */
 @media screen and (max-width: 1200px) {
   .container {
     max-width: 90%;
